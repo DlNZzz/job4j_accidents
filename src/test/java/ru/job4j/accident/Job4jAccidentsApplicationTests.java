@@ -1,4 +1,4 @@
-package ru.job4j.accidents;
+package ru.job4j.accident;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
