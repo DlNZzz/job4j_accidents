@@ -17,4 +17,18 @@ public class AccidentMem {
     public Collection<Accident> findAll() {
         return accidents.values();
     }
+
+    public void create(Accident accident) {
+        accidents.put(accident.getId(), accident);
+    }
+
+    public void edit(Accident accident) {
+        Accident accMap = accidents.get(accident.getId());
+        accMap.setText(accident.getText());
+        accidents.put(accident.getId(), accMap);
+    }
+
+    public Object findById(int id) {
+        return accidents.get(id);
+    }
 }
