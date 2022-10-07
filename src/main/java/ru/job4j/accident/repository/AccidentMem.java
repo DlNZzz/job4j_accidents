@@ -5,13 +5,15 @@ import ru.job4j.accident.model.Accident;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
     private HashMap<Integer, Accident> accidents = new HashMap<>();
+    private AtomicInteger count = new AtomicInteger();
 
     public AccidentMem() {
-        accidents.put(1, new Accident(1,"123", "qwe", "qwe"));
+        accidents.put(0, new Accident(0,"123", "qwe", "qwe"));
     }
 
     public Collection<Accident> findAll() {
@@ -19,13 +21,14 @@ public class AccidentMem {
     }
 
     public void create(Accident accident) {
+        int id = count.addAndGet(1);
+        System.out.println(id);
+        accident.setId(id);
         accidents.put(accident.getId(), accident);
     }
 
     public void edit(Accident accident) {
-        Accident accMap = accidents.get(accident.getId());
-        accMap.setText(accident.getText());
-        accidents.put(accident.getId(), accMap);
+        accidents.replace(accident.getId(), accident);
     }
 
     public Object findById(int id) {
