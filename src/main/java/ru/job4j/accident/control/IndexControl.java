@@ -14,15 +14,12 @@ public class IndexControl {
         this.accidentService = accidentService;
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("user", "Petr Arsentev");
         model.addAttribute("accidents", accidentService.findAll());
         return "index";
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "redirect:/index";
-    }
+
 }
