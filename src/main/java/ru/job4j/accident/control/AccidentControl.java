@@ -16,11 +16,6 @@ import java.util.List;
 public class AccidentControl {
     private final AccidentService accidents;
 
-    //@GetMapping("/createAccident")
-    //public String viewCreateAccident() {
-    //    return "createAccident";
-    //}
-
     @PostMapping("/saveAccident")
     public String save(@ModelAttribute Accident accident) {
         accidents.create(accident);
