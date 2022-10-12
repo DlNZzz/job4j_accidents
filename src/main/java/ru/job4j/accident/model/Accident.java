@@ -14,9 +14,14 @@ import java.util.Set;
 public class Accident {
     @EqualsAndHashCode.Include
     private int id;
+
     private String name;
+
     private String text;
+
     private String address;
+
     private AccidentType type;
+
     private Set<Rule> rules;
 }

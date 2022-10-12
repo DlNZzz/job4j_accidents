@@ -1,19 +1,15 @@
 package ru.job4j.accident.repository;
 
 import org.springframework.stereotype.Repository;
-import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentTypeMem {
 
-    private HashMap<Integer, AccidentType> types = new HashMap<>();
+    private final HashMap<Integer, AccidentType> types = new HashMap<>();
 
     public AccidentTypeMem() {
         types.put(0, new AccidentType(0, "Две машины"));
