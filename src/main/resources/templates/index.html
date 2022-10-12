@@ -81,15 +81,15 @@
                     </a>
                     <span th:text="${accident.id}"></span>
                 </td>
-                <td th:text="${accident.text}"></td>
+                <!--td th:text="${accident.text}"></td-->
                 <td th:text="${accident.name}"></td>
-                <td th:text="${accident.address}"></td>
+                <!--td th:text="${accident.address}"></td>
                 <td th:text="${accident.type.name}"></td>
                 <td>
                     <ul>
                         <li th:each="rule : ${accident.rules}" th:text="${rule.name}"></li>
                     </ul>
-                </td>
+                </td-->
             </tr>
         </tbody>
     </table>
