@@ -5,19 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.accident.model.Accident;
-import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.service.AccidentService;
-
-import java.util.ArrayList;
-import java.util.List;
+import ru.job4j.accident.service.AccidentTypeService;
 
 @Controller
 @AllArgsConstructor
 public class AccidentControl {
     private final AccidentService accidents;
+    private final AccidentTypeService accidentTypeService;
 
     @PostMapping("/saveAccident")
     public String save(@ModelAttribute Accident accident) {
+        System.out.println(accident);
         accidents.create(accident);
         return "redirect:/";
     }
@@ -42,11 +41,7 @@ public class AccidentControl {
 
     @GetMapping("/createAccident")
     public String viewCreateAccident(Model model) {
-        List<AccidentType> types = new ArrayList<>();
-        types.add(new AccidentType(1, "Две машины"));
-        types.add(new AccidentType(2, "Машина и человек"));
-        types.add(new AccidentType(3, "Машина и велосипед"));
-        model.addAttribute("types", types);
+        model.addAttribute("types", accidentTypeService.findAll());
         return "createAccident";
     }
 }

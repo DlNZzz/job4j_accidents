@@ -1,9 +1,6 @@
 package ru.job4j.accident.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
@@ -14,9 +11,4 @@ public class AccidentType {
     private int id;
 
     private String name;
-
-    @Override
-    public String toString() {
-        return name + "";
-    }
 }
