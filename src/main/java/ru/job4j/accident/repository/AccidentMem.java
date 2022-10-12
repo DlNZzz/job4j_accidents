@@ -2,6 +2,7 @@ package ru.job4j.accident.repository;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
+import ru.job4j.accident.model.AccidentType;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ public class AccidentMem {
     private AtomicInteger count = new AtomicInteger();
 
     public AccidentMem() {
-        accidents.put(0, new Accident(0,"123", "qwe", "qwe"));
+        accidents.put(0, new Accident(0,"123", "qwe", "qwe", new AccidentType()));
     }
 
     public Collection<Accident> findAll() {
