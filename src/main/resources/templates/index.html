@@ -70,6 +70,7 @@
                 <th scope="col">Имя</th>
                 <th scope="col">Адрес</th>
                 <th scope="col">Тип</th>
+                <th scope="col">Статьи</th>
             </tr>
         </thead>
         <tbody>
@@ -84,6 +85,11 @@
                 <td th:text="${accident.name}"></td>
                 <td th:text="${accident.address}"></td>
                 <td th:text="${accident.type.name}"></td>
+                <td>
+                    <ul>
+                        <li th:each="rule : ${accident.rules}" th:text="${rule.name}"></li>
+                    </ul>
+                </td>
             </tr>
         </tbody>
     </table>

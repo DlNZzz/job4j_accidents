@@ -15,8 +15,6 @@ public class AccidentTypeMem {
 
     private HashMap<Integer, AccidentType> types = new HashMap<>();
 
-    private AtomicInteger count = new AtomicInteger();
-
     public AccidentTypeMem() {
         types.put(0, new AccidentType(0, "Две машины"));
         types.put(1, new AccidentType(1, "Машина и человек"));
