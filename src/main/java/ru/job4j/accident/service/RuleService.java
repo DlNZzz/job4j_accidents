@@ -3,7 +3,8 @@ package ru.job4j.accident.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Rule;
-import ru.job4j.accident.repository.RuleMem;
+import ru.job4j.accident.repository.hibernate.RuleHibernate;
+import ru.job4j.accident.repository.mem.RuleMem;
 
 import java.util.Collection;
 import java.util.Set;
@@ -12,17 +13,17 @@ import java.util.Set;
 @AllArgsConstructor
 public class RuleService {
 
-    private RuleMem ruleMem;
+    private RuleHibernate ruleHibernate;
 
     public Collection<Rule> findAll() {
-        return ruleMem.findAll();
+        return ruleHibernate.findAll();
     }
 
     public Set<Rule> findByIds(String[] rIds) {
-        return ruleMem.findByIds(rIds);
+        return ruleHibernate.findByIds(rIds);
     }
 
     public Object findById(int id) {
-        return ruleMem.findById(id);
+        return ruleHibernate.findById(id);
     }
 }

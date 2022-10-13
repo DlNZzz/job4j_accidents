@@ -1,4 +1,4 @@
-package ru.job4j.accident.repository;
+package ru.job4j.accident.repository.mem;
 
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Rule;
@@ -11,9 +11,9 @@ public class RuleMem {
     private HashMap<Integer, Rule> rules = new HashMap<>();
 
     public RuleMem() {
-        rules.put(0, new Rule(0, "Статья. 1"));
-        rules.put(1, new Rule(1, "Статья. 2"));
-        rules.put(2, new Rule(2, "Статья. 3"));
+        rules.put(0, new Rule(0, "Статья. 1", new HashSet<>()));
+        rules.put(1, new Rule(1, "Статья. 2", new HashSet<>()));
+        rules.put(2, new Rule(2, "Статья. 3", new HashSet<>()));
     }
 
     public Collection<Rule> findAll() {
