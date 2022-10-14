@@ -17,8 +17,8 @@ public class AccidentServiceJava {
         return accidentMem.findAll();
     }
 
-    public void create(Accident accident, String[] ids) {
-        accidentMem.create(accident, ids);
+    public void create(Accident accident) {
+        accidentMem.create(accident);
     }
 
     public void edit(Accident accident) {

@@ -3,39 +3,38 @@ package ru.job4j.accident.repository.mem;
 import org.springframework.stereotype.Repository;
 import ru.job4j.accident.model.Accident;
 import ru.job4j.accident.model.AccidentType;
+import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.service.AccidentTypeService;
 import ru.job4j.accident.service.RuleService;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @Repository
 public class AccidentMem {
 
-    private final AccidentTypeService accidentTypeService;
-    private final RuleService ruleService;
-
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
 
     private final AtomicInteger count = new AtomicInteger(0);
 
-    public AccidentMem(AccidentTypeService accidentTypeService, RuleService ruleService) {
-        this.accidentTypeService = accidentTypeService;
-        this.ruleService = ruleService;
+    public AccidentMem() {
         accidents.put(0, new Accident(0, "123", "qwe", "qwe",
-                (AccidentType) accidentTypeService.findById(1),
-                ruleService.findByIds(new String[] {"1"})));
+                new AccidentType(),
+                Set.of(
+                        new Rule(1, "qwe", new HashSet<>()),
+                        new Rule(2, "asd", new HashSet<>())
+                )));
     }
 
     public Collection<Accident> findAll() {
         return accidents.values();
     }
 
-    public void create(Accident accident, String[] ids) {
+    public void create(Accident accident) {
         accident.setId(count.incrementAndGet());
-        accident.setType((AccidentType) accidentTypeService.findById(accident.getType().getId()));
-        accident.setRules(ruleService.findByIds(ids));
         accidents.put(accident.getId(), accident);
     }
 
