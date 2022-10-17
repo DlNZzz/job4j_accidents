@@ -9,12 +9,13 @@ import java.util.*;
 public class RuleMem {
 
     private HashMap<Integer, Rule> rules = new HashMap<>();
-
+/*
     public RuleMem() {
         rules.put(0, new Rule(0, "Статья. 1"));
         rules.put(1, new Rule(1, "Статья. 2"));
         rules.put(2, new Rule(2, "Статья. 3"));
     }
+ */
 
     public Collection<Rule> findAll() {
         return rules.values();

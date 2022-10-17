@@ -15,12 +15,12 @@ import java.util.function.Function;
 public class AccidentHibernate {
     private final SessionFactory sf;
 
-    public Accident save(Accident accident) {
-        return (Accident) this.tx(session -> session.save(accident));
+    public void save(Accident accident) {
+        this.tx(session -> session.save(accident));
     }
 
     public List<Accident> findAll() {
-        return tx(session -> session.createQuery("FROM Accident", Accident.class)
+        return tx(session -> session.createQuery("FROM Accident a", Accident.class)
                 .list()
         );
     }

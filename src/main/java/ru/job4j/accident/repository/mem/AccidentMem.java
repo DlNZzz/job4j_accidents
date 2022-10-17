@@ -9,7 +9,6 @@ import ru.job4j.accident.service.RuleService;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -19,7 +18,7 @@ public class AccidentMem {
     private final HashMap<Integer, Accident> accidents = new HashMap<>();
 
     private final AtomicInteger count = new AtomicInteger(0);
-
+/*
     public AccidentMem() {
         accidents.put(0, new Accident(0, "123", "qwe", "qwe",
                 new AccidentType(),
@@ -28,6 +27,8 @@ public class AccidentMem {
                         new Rule(2, "asd")
                 )));
     }
+
+ */
 
     public Collection<Accident> findAll() {
         return accidents.values();
