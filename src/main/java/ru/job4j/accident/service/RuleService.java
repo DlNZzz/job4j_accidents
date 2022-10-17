@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.hibernate.RuleHibernate;
-import ru.job4j.accident.repository.mem.RuleMem;
 
 import java.util.Collection;
 import java.util.Set;

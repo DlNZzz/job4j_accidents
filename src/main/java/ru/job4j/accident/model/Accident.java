@@ -30,7 +30,7 @@ public class Accident {
     @JoinColumn(name = "types_id")
     private AccidentType type;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany
     @JoinTable(
             name = "accidents_rules",
             joinColumns = @JoinColumn(name = "accidents_id"),

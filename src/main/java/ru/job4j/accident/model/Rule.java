@@ -19,7 +19,5 @@ public class Rule {
     private int id;
 
     private String name;
-
-    @ManyToMany(mappedBy = "rules")
-    private Set<Accident> accidents = new HashSet<>();
+    
 }

@@ -24,8 +24,8 @@ public class AccidentMem {
         accidents.put(0, new Accident(0, "123", "qwe", "qwe",
                 new AccidentType(),
                 Set.of(
-                        new Rule(1, "qwe", new HashSet<>()),
-                        new Rule(2, "asd", new HashSet<>())
+                        new Rule(1, "qwe"),
+                        new Rule(2, "asd")
                 )));
     }
 
