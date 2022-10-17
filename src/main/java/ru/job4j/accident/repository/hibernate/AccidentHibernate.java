@@ -20,7 +20,7 @@ public class AccidentHibernate {
     }
 
     public List<Accident> findAll() {
-        return tx(session -> session.createQuery("", Accident.class)
+        return tx(session -> session.createQuery("SELECT DISTINCT a FROM Accident a JOIN FETCH a.rules", Accident.class)
                 .list()
         );
     }

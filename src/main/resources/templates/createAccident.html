@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="type.id" name="rIds">Статья</label>
-                        <select class="form-control" id="rIds" name="rIds" multiple>
+                        <select required class="form-control" id="rIds" name="rIds" multiple="multiple">
                             <option th:each="rule: ${rules}" th:text="${rule.name}" th:value="${rule.id}"></option>
                         </select>
                     </div>
