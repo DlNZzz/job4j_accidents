@@ -8,6 +8,7 @@ import ru.job4j.accident.repository.hibernate.AccidentHibernate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -31,7 +32,7 @@ public class AccidentService {
         accidentsRepository.save(accident);
     }
 
-    public Object findById(int id) {
+    public Optional<Accident> findById(int id) {
         return accidentsRepository.findById(id);
     }
 

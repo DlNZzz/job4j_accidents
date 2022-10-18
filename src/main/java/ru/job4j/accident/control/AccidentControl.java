@@ -24,13 +24,14 @@ public class AccidentControl {
     public String save(@ModelAttribute Accident accident, HttpServletRequest req) {
         String[] ids = req.getParameterValues("rIds");
         accident.setRules(ruleService.findByIds(ids));
-        accident.setType((AccidentType) accidentTypeService.findById(accident.getType().getId()));
+        accident.setType(accidentTypeService.findById(accident.getType().getId()).get());
         accidents.create(accident);
         return "redirect:/";
     }
 
     @PostMapping("/updateAccident")
     public String edit(@ModelAttribute Accident accident) {
+
         accidents.edit(accident);
         return "redirect:/";
     }
