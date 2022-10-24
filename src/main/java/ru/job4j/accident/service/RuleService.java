@@ -2,14 +2,10 @@ package ru.job4j.accident.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.job4j.accident.model.AccidentType;
 import ru.job4j.accident.model.Rule;
 import ru.job4j.accident.repository.RuleRepository;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -29,13 +25,13 @@ public class RuleService {
         Set<Rule> rules = new HashSet<>();
         for (String sId : rIds) {
             int id = Integer.parseInt(sId);
-            Rule rule = (Rule) findById(id);
+            Rule rule = findById(id).get();
             rules.add(rule);
         }
         return rules;
     }
 
-    public Object findById(int id) {
+    public Optional<Rule> findById(int id) {
         return ruleRepository.findById(id);
     }
 }
