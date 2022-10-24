@@ -8,6 +8,7 @@ import ru.job4j.accident.repository.RuleRepository;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 @Service
@@ -25,7 +26,13 @@ public class RuleService {
     }
 
     public Set<Rule> findByIds(String[] rIds) {
-        return ruleRepository.findByIds(rIds);
+        Set<Rule> rules = new HashSet<>();
+        for (String sId : rIds) {
+            int id = Integer.parseInt(sId);
+            Rule rule = (Rule) findById(id);
+            rules.add(rule);
+        }
+        return rules;
     }
 
     public Object findById(int id) {

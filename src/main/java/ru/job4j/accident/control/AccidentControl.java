@@ -31,7 +31,9 @@ public class AccidentControl {
 
     @PostMapping("/updateAccident")
     public String edit(@ModelAttribute Accident accident) {
-
+        String name = accident.getName();
+        accident = accidents.findById(accident.getId()).get();
+        accident.setName(name);
         accidents.edit(accident);
         return "redirect:/";
     }
