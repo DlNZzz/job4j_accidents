@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -29,8 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password(passwordEncoder.encode("123456"))
                 .roles("USER", "ADMIN");
     }
-
-
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

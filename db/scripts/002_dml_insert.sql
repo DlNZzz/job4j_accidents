@@ -15,3 +15,5 @@ INSERT INTO accidents (id, name, text, address, types_id) values (1, 'qew', 'tex
 
 INSERT INTO accidents_rules (id, accidents_id, rules_id) values (1, 1, 2);
 
+
+
