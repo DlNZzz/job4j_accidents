@@ -32,6 +32,7 @@ public class LoginControl {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth);
         if (auth != null) {
             new SecurityContextLogoutHandler().logout(request, response, auth);
         }
